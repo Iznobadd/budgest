@@ -16,3 +16,19 @@ body {
 .transition-width {
     transition-property: width;
 }
+.form-input {
+    display: block;
+    width: 100%;
+    border-radius: .375rem;
+    border-width: 1px;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+}
+.btn {
+    display: inline-block;
+    border-radius: .375rem;
+    border-width: 1px;
+    padding: .5rem 1rem;
+    text-align: center;
+    font-size: .8125rem;
+}

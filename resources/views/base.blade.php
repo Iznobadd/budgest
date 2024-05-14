@@ -7,7 +7,8 @@
         <title>Laravel</title>
 
         @vite('resources/css/app.css')
-        @vite('resources/js/app.js')
+        @vite('resources/js/sidebar.js')
+        @vite('resources/js/switchMode.js')
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

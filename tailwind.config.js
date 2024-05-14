@@ -20,7 +20,9 @@ export default {
             secondary: "#3b82f6",
             icons: "#39475a",
             border_light: "#e2e8f0",
-            border_dark: "#1c2e45"
+            border_dark: "#1c2e45",
+            blue: "#3b82f6",
+            blue_accent: "#2563eb"
         }
     },
   },
