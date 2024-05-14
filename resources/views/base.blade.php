@@ -18,12 +18,20 @@
     <div class="flex h-screen">
         @include("partials/navbar")
 
-        <main class="bg-gray-500 flex-1">
-            <header class="fixed w-full h-20 bg-white flex items-center px-4">
+        <main class="bg-primary dark:bg-primary_dark flex-1 relative">
+            <header class="sticky top-0 w-full h-20 bg-secondary dark:bg-secondary_dark flex items-center px-4 justify-between">
                 <div>
-                    <i class="fa-solid fa-chevron-left cursor-pointer p-4 rounded" id="toggleSidebar"></i>
+                    <i class="fa-solid fa-chevron-left cursor-pointer p-4 rounded text-icons dark:text-primary hover:text-icons hover:bg-accent hover:dark:bg-accent_dark" id="toggleSidebar"></i>
                 </div>
-                <div></div>
+                <div>
+                    <input type="checkbox" id="light-switch" class="light-switch sr-only" />
+                    <label for="light-switch">
+                        <i class="fa-solid fa-sun dark:hidden block cursor-pointer p-4 rounded text-icons hover:bg-accent"></i>
+                        <i class="fa-solid fa-moon hidden dark:block cursor-pointer p-4 rounded text-primary hover:text-white hover:dark:bg-accent_dark"></i>
+                        <span class="sr-only">Switch to light / dark version</span>
+                    </label>
+                </div>
+
             </header>
         </main>
     </div>
