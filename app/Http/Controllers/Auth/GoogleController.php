@@ -27,6 +27,7 @@ class GoogleController extends Controller
             $newUser->name = $user->getName();
             $newUser->email = $user->getEmail();
             $newUser->password = bcrypt(Str::random(16));
+            $newUser->avatar_url = $user->getAvatar();
             $newUser->save();
 
             Auth::login($newUser);

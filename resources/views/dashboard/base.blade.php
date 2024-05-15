@@ -26,14 +26,21 @@
                 <i class="fa-solid fa-chevron-left cursor-pointer p-4 rounded text-icons dark:text-primary hover:text-icons hover:bg-accent hover:dark:bg-accent_dark"
                    id="toggleSidebar"></i>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center gap-3">
                 <input type="checkbox" id="light-switch" class="light-switch sr-only"/>
                 <label for="light-switch">
                     <i class="fa-solid fa-sun dark:hidden block cursor-pointer p-4 rounded text-icons hover:bg-accent"></i>
                     <i class="fa-solid fa-moon hidden dark:block cursor-pointer p-4 rounded text-primary hover:text-white hover:dark:bg-accent_dark"></i>
                     <span class="sr-only">Switch to light / dark version</span>
                 </label>
-                <div>{{ Auth::user()->name }}</div>
+                <div>
+                    @if(Auth::user()->avatar_url)
+                        <img src="{{ Auth::user()->avatar_url }}" alt="" class="rounded-full w-[37.5px] h-[37.5px]">
+                    @else
+                        <img src="{{ Vite::asset('resources/images/avatar.png') }}" alt="" class="rounded-full w-[37.5px] h-[37.5px]">
+                    @endif
+
+                </div>
             </div>
 
 
