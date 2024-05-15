@@ -31,6 +31,6 @@ class GoogleController extends Controller
 
             Auth::login($newUser);
         }
-        return redirect()->route('base');
+        return redirect()->route('dashboard.home');
     }
 }
