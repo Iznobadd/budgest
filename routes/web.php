@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\CredentialController;
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +19,8 @@ Route::get('/', function () {
     return view('base');
 });
 
-Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/register', [CredentialController::class, 'registerForm'])->name('register');
+Route::post('/register', [CredentialController::class, 'register']);
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('googleRegister');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

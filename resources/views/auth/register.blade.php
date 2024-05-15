@@ -27,19 +27,22 @@
                 <p class="text-slate-500">Get your free Budgest account now</p>
             </div>
 
-            <form action="" class="mt-10">
+            <form action="{{ route('register') }}" method="POST" class="mt-10">
+                @csrf
+                @method('POST')
+
                 <div class="mb-3">
-                    <label for="email-field" class="inline-block mb-2 text-base font-medium">Email</label>
-                    <input type="text" id="email-field" class="form-input border-slate-200 focus:outline-none focus:border-blue disabled:bg-slate-100 disabled:border-slate-300 disabled:text-slate-500 placeholder:text-slate-400" placeholder="Enter email">
+                    @include('shared.input_with_error', ['label' => 'Email', 'field' => 'email-field', 'type' => 'email', 'name' => 'email', 'placeholder' => 'Enter email', 'isRequired' => true])
                 </div>
                 <div class="mb-3">
-                    <label for="username-field" class="inline-block mb-2 text-base font-medium">Username</label>
-                    <input type="text" id="username-field" class="form-input border-slate-200 focus:outline-none focus:border-blue disabled:bg-slate-100 disabled:border-slate-300 disabled:text-slate-500 placeholder:text-slate-400" placeholder="Enter username">
+                    @include('shared.input_with_error', ['label' => 'Username', 'field' => 'username-field', 'type' => 'text', 'name' => 'name', 'placeholder' => 'Enter username', 'isRequired' => true])
+                </div>
+
+                <div class="mb-3">
+                    @include('shared.input_with_error', ['label' => 'Password', 'field' => 'password-field', 'type' => 'password', 'name' => 'password', 'placeholder' => 'Enter password', 'isRequired' => true])
                 </div>
                 <div class="mb-3">
-                    <label for="pwd-field" class="inline-block mb-2 text-base font-medium">Password</label>
-                    <input type="password" id="pwd-field" class="form-input border-slate-200 focus:outline-none focus:border-blue disabled:bg-slate-100 disabled:border-slate-300 disabled:text-slate-500 placeholder:text-slate-400" placeholder="Enter password">
-                </div>
+                    @include('shared.input_with_error', ['label' => 'Password Confirmation', 'field' => 'password-confirm-field', 'type' => 'password', 'name' => 'password_confirmation', 'placeholder' => 'Enter password confirmation', 'isRequired' => true])              </div>
 
                 <div class="mt-10">
                     <button type="submit" class="w-full text-white transition-all duration-200 ease-linear btn bg-blue border-blue hover:text-white hover:bg-blue_accent hover:border-blue_accent focus:text-white focus:bg-blue focus:border-blue">Sign Up</button>
@@ -50,10 +53,19 @@
                 <h5 class="inline-block px-2 py-0.5 text-sm bg-white text-slate-500 rounded relative">Create account with</h5>
             </div>
 
+            <div class="">
+                <a href="{{ route("googleRegister") }}" class="cursor-pointer w-full justify-center px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400  hover:text-slate-900 hover:shadow transition duration-150">
+                    <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo">
+                    <span>Sign up with Google</span>
+                </a>
+            </div>
+
             <div class="mt-10 text-center">
                 <p class="mb-0 text-slate-500">Already have an account ? <a href="#" class="font-semibold underline transition-all duration-150 ease-linear text-slate-500 hover:text-blue ">Login</a> </p>
             </div>
+
         </div>
+
     </div>
 </div>
 </body>
