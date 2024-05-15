@@ -11,7 +11,11 @@ use Illuminate\View\View;
 class CredentialController extends Controller
 {
     public function registerForm(): View {
-        return view('auth/register');
+        return view('auth.register');
+    }
+
+    public function loginForm(): View {
+        return view('auth.login');
     }
 
     public function register(RegisterRequest $request) {

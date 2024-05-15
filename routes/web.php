@@ -22,5 +22,7 @@ Route::get('/', function () {
 Route::get('/register', [CredentialController::class, 'registerForm'])->name('register');
 Route::post('/register', [CredentialController::class, 'register']);
 
-Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('googleRegister');
+Route::get('/login', [CredentialController::class, 'loginForm'])->name('login');
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('googleAuth');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
