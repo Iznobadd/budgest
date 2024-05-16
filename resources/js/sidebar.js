@@ -1,6 +1,7 @@
 let toggleSidebar = document.getElementById('toggleSidebar');
 let sidebar = document.getElementById('sidebar');
-let listItems = document.querySelectorAll('#sidebar ul li span');
+let mainContent = document.getElementById('main');
+let listSpanItems = document.querySelectorAll('#sidebar ul li span');
 let listChevrons = document.querySelectorAll('#sidebar ul li a > i');
 let listLinks = document.querySelectorAll('#sidebar ul li a');
 
@@ -9,10 +10,16 @@ toggleSidebar.addEventListener('click', function () {
     sidebar.classList.toggle('w-0');
     sidebar.classList.toggle('w-64');
 
-    toggleSidebar.classList.toggle('fa-chevron-left');
-    toggleSidebar.classList.toggle('fa-chevron-right');
+    mainContent.classList.toggle('md:ml-20');
+    mainContent.classList.toggle('ml-0');
+    mainContent.classList.toggle('ml-64')
 
-    listItems.forEach(item => {
+    toggleSidebar.classList.toggle('fa-angles-left');
+    toggleSidebar.classList.toggle('fa-angles-right');
+
+
+
+    listSpanItems.forEach(item => {
         item.classList.toggle('hidden');
         item.classList.toggle('ml-2');
     });
@@ -25,5 +32,23 @@ toggleSidebar.addEventListener('click', function () {
     });
 });
 
+function toggleDropdown(event) {
+    event.preventDefault();
+    const chevron = event.currentTarget.querySelector('.fa-chevron-right');
+    const dropdownMenu = event.currentTarget.nextElementSibling;
 
+    if (!dropdownMenu) {
+        return;
+    }
 
+    chevron.classList.toggle('rotate-90');
+    chevron.classList.toggle('rotate-0');
+
+    if (dropdownMenu.classList.contains('hidden')) {
+        dropdownMenu.classList.remove('hidden');
+    } else {
+        dropdownMenu.classList.add('hidden');
+    }
+}
+
+window.toggleDropdown = toggleDropdown;

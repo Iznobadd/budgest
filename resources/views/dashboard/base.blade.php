@@ -19,11 +19,11 @@
 <div class="flex h-screen">
     @include("partials.navbar")
 
-    <main class="bg-primary dark:bg-primary_dark flex-1 relative">
+    <main class="bg-primary dark:bg-primary_dark flex-1 relative ml-64 transition-margin duration-1000" id="main">
         <header
             class="sticky top-0 w-full h-20 bg-secondary dark:bg-secondary_dark flex items-center px-4 justify-between">
             <div>
-                <i class="fa-solid fa-chevron-left cursor-pointer p-4 rounded text-icons dark:text-primary hover:text-icons hover:bg-accent hover:dark:bg-accent_dark"
+                <i class="fa-solid fa-angles-left cursor-pointer p-4 rounded text-icons dark:text-primary hover:text-icons hover:bg-accent hover:dark:bg-accent_dark"
                    id="toggleSidebar"></i>
             </div>
             <div class="flex items-center gap-3">

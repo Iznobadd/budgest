@@ -16,6 +16,9 @@ body {
 .transition-width {
     transition-property: width;
 }
+.transition-margin {
+    transition-property: margin;
+}
 .form-input {
     display: block;
     width: 100%;
