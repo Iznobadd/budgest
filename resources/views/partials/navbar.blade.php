@@ -1,46 +1,63 @@
-<nav class="bg-secondary dark:bg-secondary_dark w-64 border-r border-r-border_light dark:border-r-border_dark flex flex-col transition-width duration-1000 fixed top-0 bottom-0 left-0" id="sidebar">
-    <div class="h-20 w-full flex justify-center">
-        <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo Budgest" class="p-5 max-h-full">
-    </div>
-
-    <div>
-        <ul class="flex flex-col items-center justify-center text-primary">
-            <li class="px-4 py-1 uppercase font-medium text-[13px] cursor-default block w-5/6">
-                <span>Menu</span>
-            </li>
-            @include('shared.nav_list', [
-                'href' => 'javascript:void(0)',
-                'icon' => 'fa-solid fa-chalkboard',
-                'name' => 'Dashboard',
-                'dropdown' => true,
-                'dropdownItems' => [
-                    ['text' => 'Test 1', 'url' => 'test1'],
-                    ['text' => 'Test 2', 'url' => 'test2'],
-                    ['text' => 'Test 3', 'url' => 'test3'],
-                ]
-            ])
-
-            @include('shared.nav_list', [
-                'href' => 'TEST',
-                'icon' => 'fa-solid fa-arrow-right-arrow-left',
-                'name' => 'Transactions',
-                'dropdown' => false
-            ])
-
-            @include('shared.nav_list', [
-                'href' => 'javascript:void(0)',
-                'icon' => 'fa-solid fa-coins',
-                'name' => 'Budget',
-                'dropdown' => true,
-                'dropdownItems' => [
-                    ['text' => 'Test 1', 'url' => 'test1'],
-                    ['text' => 'Test 2', 'url' => 'test2'],
-                    ['text' => 'Test 3', 'url' => 'test3'],
-                ]
-            ])
-
-        </ul>
-
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center justify-start">
+                <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    </svg>
+                </button>
+                <a href="https://flowbite.com" class="flex ms-2 md:me-24">
+                    <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-8 me-3" alt="Budgest Logo" />
+                </a>
+            </div>
+            <div class="flex items-center">
+                <input type="checkbox" id="light-switch" class="light-switch sr-only"/>
+                <label for="light-switch">
+                    <i class="fa-solid fa-sun dark:hidden block cursor-pointer p-4 rounded text-icons hover:bg-accent"></i>
+                    <i class="fa-solid fa-moon hidden dark:block cursor-pointer p-4 rounded text-primary hover:text-white hover:dark:bg-accent_dark"></i>
+                    <span class="sr-only">Switch to light / dark version</span>
+                </label>
+                <div class="flex items-center ms-3">
+                    <div>
+                        <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                            <span class="sr-only">Open user menu</span>
+                            @if(Auth::user()->avatar_url)
+                                <img src="{{ Auth::user()->avatar_url }}" alt="" class="rounded-full w-[37.5px] h-[37.5px]">
+                            @else
+                                <img src="{{ Vite::asset('resources/images/avatar.png') }}" alt="" class="rounded-full w-[37.5px] h-[37.5px]">
+                            @endif
+                        </button>
+                    </div>
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
+                        <div class="px-4 py-3" role="none">
+                            <p class="text-sm text-gray-900 dark:text-white" role="none">
+                                {{ Auth::user()->name }}
+                            </p>
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                                {{ Auth::user()->email }}
+                            </p>
+                        </div>
+                        <ul class="py-1" role="none">
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
+
 
