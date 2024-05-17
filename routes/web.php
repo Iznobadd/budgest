@@ -3,7 +3,7 @@
 use App\Http\Controllers\Auth\CredentialController;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\OverviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ Route::middleware('guest')->group(function() {
 
 Route::middleware('auth')->group(function() {
     Route::prefix('dashboard')->group(function () {
-        Route::get('/', [HomeController::class, 'home'])->name('dashboard.home');
+        Route::get('/', [OverviewController::class, 'home'])->name('dashboard.overview');
     });
 });
 

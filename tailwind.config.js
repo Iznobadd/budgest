@@ -1,3 +1,5 @@
+import flowbite from "flowbite/plugin";
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -8,8 +10,8 @@ export default {
   theme: {
     extend: {
         backgroundColor: {
-            primary: "#f1f5f9",
-            primary_dark: "#0f1824",
+            primary: "#f8f9fa",
+            primary_dark: "#111827",
             secondary: "#ffffff",
             secondary_dark: "#132337",
             accent: "#eff6ff",
@@ -26,6 +28,10 @@ export default {
         }
     },
   },
-  plugins: [],
+  plugins: [
+      require('flowbite/plugin')({
+          charts: true,
+      }),
+  ],
 }
 
