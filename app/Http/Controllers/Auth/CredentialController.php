@@ -28,7 +28,7 @@ class CredentialController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard.home');
+        return redirect()->route('dashboard.overview');
 
     }
 
