@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\CredentialController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Dashboard\BudgetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\OverviewController;
 
@@ -33,7 +34,10 @@ Route::middleware('guest')->group(function() {
     });
 });
 
-Route::middleware('auth')->group(function() {
+Route::get('auth/create-budget', [BudgetController::class, 'createForm'])->middleware('auth')->name('auth.create_budget');
+Route::post('auth/create-budget', [BudgetController::class, 'create'])->middleware('auth');
+
+Route::middleware(['auth', 'check.budget'])->group(function() {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', [OverviewController::class, 'home'])->name('dashboard.overview');
     });

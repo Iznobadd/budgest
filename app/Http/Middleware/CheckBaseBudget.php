@@ -17,9 +17,10 @@ class CheckBaseBudget
     {
         $user = \Auth::user();
 
-        if(!$user) {
-
+        if(!$user->budgets()->exists()) {
+            return redirect()->route('auth.create_budget');
         }
+
         return $next($request);
     }
 }
