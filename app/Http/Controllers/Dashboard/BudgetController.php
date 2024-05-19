@@ -23,6 +23,7 @@ class BudgetController extends Controller
            'user_id' => Auth::id(),
            'budget_name' => $validatedData['budget_name'],
            'total_amount' => $validatedData['total_amount'],
+           'start_day' => $validatedData['start_day'],
         ]);
 
         return redirect()->route('dashboard.overview');

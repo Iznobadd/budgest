@@ -24,7 +24,7 @@ class CreateBudgetRequest extends FormRequest
         return [
             'budget_name' => 'required|string|max:100',
             'total_amount' => 'required|numeric|min:0',
-            'start_day' => 'required|integer|min:1|max:30'
+            'start_day' => 'required|digits_between:1,2|integer|min:1|max:30'
         ];
     }
 }
