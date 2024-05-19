@@ -17191,6 +17191,575 @@ namespace Illuminate\Support\Facades {
             }
     }
 
+namespace ArielMejiaDev\LarapexCharts\Facades {
+            /**
+     * 
+     *
+     */        class LarapexChart {
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function pieChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->pieChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function donutChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->donutChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function radialChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->radialChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function polarAreaChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->polarAreaChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function lineChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->lineChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function areaChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->areaChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function barChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->barChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function horizontalBarChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->horizontalBarChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function heatMapChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->heatMapChart();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function radarChart()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->radarChart();
+        }
+                    /**
+         * 
+         *
+         * @deprecated deprecated since version 2.0
+         * @param null $type
+         * @return \ArielMejiaDev\LarapexCharts\LarapexChart 
+         * @static 
+         */        public static function setType($type = null)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setType($type);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setFontFamily($fontFamily)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setFontFamily($fontFamily);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setFontColor($fontColor)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setFontColor($fontColor);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setDataset($dataset)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setDataset($dataset);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setHeight($height)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setHeight($height);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setWidth($width)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setWidth($width);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setColors($colors)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setColors($colors);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setHorizontal($horizontal)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setHorizontal($horizontal);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setTitle($title)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setTitle($title);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setSubtitle($subtitle, $position = 'left')
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setSubtitle($subtitle, $position);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setLabels($labels)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setLabels($labels);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setXAxis($categories)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setXAxis($categories);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setGrid($color = '#e5e5e5', $opacity = 0.1)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setGrid($color, $opacity);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setMarkers($colors = [], $width = 4, $hoverSize = 7)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setMarkers($colors, $width, $hoverSize);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setStroke($width, $colors = [], $curve = 'straight')
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setStroke($width, $colors, $curve);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setToolbar($show, $zoom = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setToolbar($show, $zoom);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setDataLabels($enabled = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setDataLabels($enabled);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setTheme($theme)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setTheme($theme);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setSparkline($enabled = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setSparkline($enabled);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setStacked($stacked = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setStacked($stacked);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function setShowLegend($showLegend = true)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setShowLegend($showLegend);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function transformLabels($array)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->transformLabels($array);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function container()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->container();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function script()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->script();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function cdn()
+        {
+                        return \ArielMejiaDev\LarapexCharts\LarapexChart::cdn();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function id()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->id();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function title()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->title();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function subtitle()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->subtitle();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function subtitlePosition()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->subtitlePosition();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function type()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->type();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function fontFamily()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->fontFamily();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function foreColor()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->foreColor();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function labels()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->labels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function dataset()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->dataset();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function height()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->height();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function width()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->width();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function colors()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->colors();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function horizontal()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->horizontal();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function xAxis()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->xAxis();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function grid()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->grid();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function markers()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->markers();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function stroke()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->stroke();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function toolbar()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toolbar();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function zoom()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->zoom();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function dataLabels()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->dataLabels();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function sparkline()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->sparkline();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function stacked()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->stacked();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function showLegend()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->showLegend();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function toJson()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toJson();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */        public static function toVue()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->toVue();
+        }
+                    /**
+         * Get the value of options
+         *
+         * @static 
+         */        public static function getOptions()
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->getOptions();
+        }
+                    /**
+         * Set the value of options
+         *
+         * @return self 
+         * @static 
+         */        public static function setOptions($options)
+        {
+                        /** @var \ArielMejiaDev\LarapexCharts\LarapexChart $instance */
+                        return $instance->setOptions($options);
+        }
+            }
+    }
+
 namespace Barryvdh\Debugbar\Facades {
             /**
      * 
@@ -17681,6 +18250,129 @@ namespace Barryvdh\Debugbar\Facades {
         {            //Method inherited from \DebugBar\DebugBar         
                         /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
                         return $instance->offsetUnset($key);
+        }
+            }
+    }
+
+namespace Laravel\Socialite\Facades {
+            /**
+     * 
+     *
+     * @method array getScopes()
+     * @method \Laravel\Socialite\Contracts\Provider scopes(array|string $scopes)
+     * @method \Laravel\Socialite\Contracts\Provider setScopes(array|string $scopes)
+     * @method \Laravel\Socialite\Contracts\Provider redirectUrl(string $url)
+     * @see \Laravel\Socialite\SocialiteManager
+     */        class Socialite {
+                    /**
+         * Get a driver instance.
+         *
+         * @param string $driver
+         * @return mixed 
+         * @static 
+         */        public static function with($driver)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->with($driver);
+        }
+                    /**
+         * Build an OAuth 2 provider instance.
+         *
+         * @param string $provider
+         * @param array $config
+         * @return \Laravel\Socialite\Two\AbstractProvider 
+         * @static 
+         */        public static function buildProvider($provider, $config)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->buildProvider($provider, $config);
+        }
+                    /**
+         * Format the server configuration.
+         *
+         * @param array $config
+         * @return array 
+         * @static 
+         */        public static function formatConfig($config)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->formatConfig($config);
+        }
+                    /**
+         * Forget all of the resolved driver instances.
+         *
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */        public static function forgetDrivers()
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->forgetDrivers();
+        }
+                    /**
+         * Set the container instance used by the manager.
+         *
+         * @param \Illuminate\Contracts\Container\Container $container
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */        public static function setContainer($container)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->setContainer($container);
+        }
+                    /**
+         * Get the default driver name.
+         *
+         * @return string 
+         * @throws \InvalidArgumentException
+         * @static 
+         */        public static function getDefaultDriver()
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->getDefaultDriver();
+        }
+                    /**
+         * Get a driver instance.
+         *
+         * @param string|null $driver
+         * @return mixed 
+         * @throws \InvalidArgumentException
+         * @static 
+         */        public static function driver($driver = null)
+        {            //Method inherited from \Illuminate\Support\Manager         
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->driver($driver);
+        }
+                    /**
+         * Register a custom driver creator Closure.
+         *
+         * @param string $driver
+         * @param \Closure $callback
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */        public static function extend($driver, $callback)
+        {            //Method inherited from \Illuminate\Support\Manager         
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->extend($driver, $callback);
+        }
+                    /**
+         * Get all of the created "drivers".
+         *
+         * @return array 
+         * @static 
+         */        public static function getDrivers()
+        {            //Method inherited from \Illuminate\Support\Manager         
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->getDrivers();
+        }
+                    /**
+         * Get the container instance used by the manager.
+         *
+         * @return \Illuminate\Contracts\Container\Container 
+         * @static 
+         */        public static function getContainer()
+        {            //Method inherited from \Illuminate\Support\Manager         
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->getContainer();
         }
             }
     }
@@ -21641,7 +22333,9 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
+            class LarapexChart extends \ArielMejiaDev\LarapexCharts\Facades\LarapexChart {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
+            class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
     }
 
