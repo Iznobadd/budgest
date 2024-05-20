@@ -13,15 +13,15 @@ class MonthlyBudgetChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\PieChart
+    public function build(array $data): \ArielMejiaDev\LarapexCharts\RadialChart
     {
-        return $this->chart->pieChart()
-            ->addData([40, 50, 30])
-            ->setLabels(['Player 7', 'Player 10', 'Player 9'])
+        return $this->chart->radialChart()
+            ->addData($data)
+            ->setLabels(['Budget'])
+            ->setShowLegend(false)
             ->setOptions([
                 'responsive' => true,
                 'maintainAspectRatio' => false,
-                'legendPosition' => 'bottom'
             ]);
     }
 }
