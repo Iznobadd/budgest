@@ -13,11 +13,11 @@ class AccountOverviewChart
         $this->chart = $chart;
     }
 
-    public function build(array $data, array $dates): \ArielMejiaDev\LarapexCharts\AreaChart
+    public function build(array $data, array $labels): \ArielMejiaDev\LarapexCharts\PieChart
     {
-        return $this->chart->areaChart()
-            ->addData('Physical sales', $data)
-            ->setXAxis($dates)
+        return $this->chart->pieChart()
+            ->addData($data)
+            ->setLabels($labels)
             ->setOptions([
                 'responsive' => true,
                 'maintainAspectRatio' => false,

@@ -6,7 +6,7 @@
 @section('content')
 
     <div class="grid gap-4 xl:grid-cols-2">
-{{--        @include('partials.graphs.account_overview')--}}
+        @include('partials.graphs.account_overview')
         @include('partials.graphs.monthly_budget')
     </div>
 
@@ -19,6 +19,6 @@
 
 @section('script')
     <script src="{{ $monthlyBudgetChart->cdn() }}"></script>
-{{--    {{ $accountOverviewChart->script() }}--}}
+    {{ $accountOverviewChart->script() }}
     {{ $monthlyBudgetChart->script() }}
 @endsection
