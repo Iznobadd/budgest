@@ -19,11 +19,12 @@ class OverviewController extends Controller
         $categoriesData = $this->categoryTransactions()[1];
 
         // RECENT TRANSACTIONS
-
+        $recentTransactions = \Auth::user()->transactions()->orderBy('updated_at', 'desc')->take(10)->get();
 
         return view('dashboard.overview', [
             'monthlyBudgetChart' => $monthlyBudgetChart->build([$monthlyBudgetPercentage]),
-            'categoryTransactionsChart' => $categoryTransactionsChart->build($transactionsData, $categoriesData)
+            'categoryTransactionsChart' => $categoryTransactionsChart->build($transactionsData, $categoriesData),
+            'recentTransactions' => $recentTransactions
         ]);
     }
 
