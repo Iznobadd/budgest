@@ -13,19 +13,13 @@ class OverviewController extends Controller
 {
     public function home(AccountOverviewChart $accountOverviewChart, MonthlyBudgetChart $monthlyBudgetChart): View {
         $monthlyBudgetPercentage = $this->monthlyBudgetPercentage();
-        $categories = \Auth::user()->categories()->get();
-        $transactionsByCategory = [];
-        foreach ($categories as $category) {
-            $transactionSum = (float) \Auth::user()->transactions()->where('category_id', $category->id)->sum('amount');
 
-            $transactionSums[] = $transactionSum;
-        }
-
-        $categoryNames = $categories->pluck('category_name')->toArray();
+        $transactionsData = $this->categoryTransactions()[0];
+        $categoriesData = $this->categoryTransactions()[1];
 
         return view('dashboard.overview', [
             'monthlyBudgetChart' => $monthlyBudgetChart->build([$monthlyBudgetPercentage]),
-            'accountOverviewChart' => $accountOverviewChart->build($transactionSums, $categoryNames)
+            'accountOverviewChart' => $accountOverviewChart->build($transactionsData, $categoriesData)
         ]);
     }
 
@@ -36,8 +30,21 @@ class OverviewController extends Controller
         return round(($transactions / $total_budget) * 100);
     }
 
-    private function test() {
-        $total_transactions = \Auth::user()->transactions()->sum('amount');
-        $categories = \Auth::user()->categories()->all();
+    private function categoryTransactions() {
+        $categories = \Auth::user()->categories()->get();
+        $transactionSums = [];
+
+        foreach ($categories as $category) {
+            $transactionSum = (float) \Auth::user()->transactions()->where('category_id', $category->id)->sum('amount');
+
+            $transactionSums[] = $transactionSum;
+        }
+
+        $categoryNames = $categories->pluck('category_name')->toArray();
+
+        return [
+            $transactionSums,
+            $categoryNames
+        ];
     }
 }
