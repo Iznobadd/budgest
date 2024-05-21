@@ -7,6 +7,6 @@
             </h3>
         </div>
     </div>
-    {!! $accountOverviewChart->container() !!}
+    {!! $categoryTransactionsChart->container() !!}
 
 </div>

@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Charts\AccountOverviewChart;
+use App\Charts\CategoryTransactionsChart;
 use App\Charts\MonthlyBudgetChart;
 use App\Http\Controllers\Controller;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class OverviewController extends Controller
 {
-    public function home(AccountOverviewChart $accountOverviewChart, MonthlyBudgetChart $monthlyBudgetChart): View {
+    public function home(CategoryTransactionsChart $categoryTransactionsChart, MonthlyBudgetChart $monthlyBudgetChart): View {
+
+        // MONTHLY BUDGET
         $monthlyBudgetPercentage = $this->monthlyBudgetPercentage();
 
+        // CATEGORY TRANSACTIONS
         $transactionsData = $this->categoryTransactions()[0];
         $categoriesData = $this->categoryTransactions()[1];
 
+        // RECENT TRANSACTIONS
+
+
         return view('dashboard.overview', [
             'monthlyBudgetChart' => $monthlyBudgetChart->build([$monthlyBudgetPercentage]),
-            'accountOverviewChart' => $accountOverviewChart->build($transactionsData, $categoriesData)
+            'categoryTransactionsChart' => $categoryTransactionsChart->build($transactionsData, $categoriesData)
         ]);
     }
 
@@ -30,7 +34,8 @@ class OverviewController extends Controller
         return round(($transactions / $total_budget) * 100);
     }
 
-    private function categoryTransactions() {
+    private function categoryTransactions(): array
+    {
         $categories = \Auth::user()->categories()->get();
         $transactionSums = [];
 

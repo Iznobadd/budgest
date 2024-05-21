@@ -4,7 +4,7 @@ namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
-class AccountOverviewChart
+class CategoryTransactionsChart
 {
     protected LarapexChart $chart;
 
