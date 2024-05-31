@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\CredentialController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Dashboard\BudgetController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\OverviewController;
 
@@ -16,11 +17,9 @@ use App\Http\Controllers\Dashboard\OverviewController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', [HomeController::class, 'index'])->middleware('auth');
 Route::middleware('guest')->group(function() {
-    Route::get('/', function () {
-        return view('landing.home');
-    });
+
 
     Route::prefix('auth')->group(function() {
         Route::get('/register', [CredentialController::class, 'registerForm'])->name('register');
