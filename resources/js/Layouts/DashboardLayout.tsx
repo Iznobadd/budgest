@@ -9,8 +9,8 @@ export default function Dashboard() {
     return (
         <div className="overflow-hidden">
             <div
-                className={`pt-14 min-h-screen w-screen transition-position bg-gray-50 ${
-                    isAsideMobileExpanded ? "ml-60" : ""
+                className={`pt-14 min-h-screen w-screen lg:w-auto transition-position bg-gray-50 ${
+                    isAsideMobileExpanded ? "ml-60" : "lg:ml-60"
                 }`}
             >
                 <Navbar
@@ -27,12 +27,15 @@ export default function Dashboard() {
                     }
                 />
                 <AsideMenu isAsideMobileExpanded={isAsideMobileExpanded} />
-                <p className="p-6">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Minima provident eius, est esse, eligendi praesentium animi
-                    at ea labore, quis molestias ipsam. Dignissimos, numquam
-                    alias adipisci explicabo ipsum facilis qui.
-                </p>
+                <div className="p-6 lg:mx-auto xl:max-w-6xl">
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing
+                        elit. Minima provident eius, est esse, eligendi
+                        praesentium animi at ea labore, quis molestias ipsam.
+                        Dignissimos, numquam alias adipisci explicabo ipsum
+                        facilis qui.
+                    </p>
+                </div>
             </div>
         </div>
     );
