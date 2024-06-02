@@ -23,6 +23,9 @@ export default {
                 blue: "#3b82f6",
                 blue_accent: "#2563eb",
             },
+            transitionProperty: {
+                position: "right, left, top, bottom, margin, padding",
+            },
         },
     },
     plugins: [

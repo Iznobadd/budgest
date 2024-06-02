@@ -3,9 +3,17 @@ import Logo from "../../../images/logo.png";
 import Item from "./Item";
 import menu from "./MenuList";
 
-export default function AsideMenu() {
+type Props = {
+    isAsideMobileExpanded: boolean;
+};
+
+export default function AsideMenu({ isAsideMobileExpanded = false }: Props) {
     return (
-        <aside className="h-screen fixed left-0 w-60 flex z-40 top-0 overflow-hidden">
+        <aside
+            className={`h-screen fixed w-60 flex z-40 transition-position top-0 overflow-hidden ${
+                isAsideMobileExpanded ? "left-0" : "-left-60"
+            }`}
+        >
             <div className="flex-1 flex flex-col overflow-hidden">
                 {/* LOGO */}
                 <div className="flex h-14 items-center justify-center">
