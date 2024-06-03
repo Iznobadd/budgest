@@ -7,9 +7,9 @@ export default function Dashboard() {
     const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false);
 
     return (
-        <div className="overflow-hidden bg-primary">
+        <div className="overflow-hidden bg-gray-100 dark:bg-slate-800">
             <div
-                className={`pt-14 min-h-screen w-screen lg:w-auto transition-position bg-gray-50 ${
+                className={`pt-14 min-h-screen w-screen lg:w-auto transition-position bg-gray-100 dark:bg-slate-800 ${
                     isAsideMobileExpanded ? "ml-60" : "lg:ml-60"
                 }`}
             >

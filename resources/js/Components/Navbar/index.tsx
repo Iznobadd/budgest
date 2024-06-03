@@ -28,7 +28,7 @@ const Navbar = ({ className, onClick, icon }: Props) => {
 
     return (
         <nav
-            className={`${className} top-0 fixed h-14 z-30 w-screen inset-x-0 transition-position`}
+            className={`${className} top-0 fixed h-14 z-30 w-screen inset-x-0 transition-position text-black dark:text-white`}
         >
             <div className="flex items-stretch">
                 <div className="flex flex-1 items-stretch h-14">
@@ -45,14 +45,35 @@ const Navbar = ({ className, onClick, icon }: Props) => {
                     </div>
                 </div>
                 <div className="h-14 flex items-center cursor-pointer flex-none">
-                    <div className="flex items-center p-3">
-                        <button
-                            className="bg-yellow-100 dark:bg-slate-900"
-                            onClick={() => darkModeHandler()}
-                        >
-                            {dark && <IoSunny />}
-                            {!dark && <IoMoon />}
-                        </button>
+                    <div className="flex items-center p-3 ">
+                        <label className="relative inline-flex cursor-pointer select-none items-center">
+                            <input
+                                type="checkbox"
+                                checked={dark}
+                                onChange={darkModeHandler}
+                                className="sr-only"
+                            />
+                            <div className="shadow-card flex h-[46px] w-[82px] items-center justify-center rounded-md">
+                                <span
+                                    className={`flex h-9 w-9 items-center justify-center rounded ${
+                                        !dark
+                                            ? "bg-white text-gray-500"
+                                            : "text-white"
+                                    }`}
+                                >
+                                    <IoSunny />
+                                </span>
+                                <span
+                                    className={`flex h-9 w-9 items-center justify-center rounded ${
+                                        dark
+                                            ? "dark:bg-slate-900/70"
+                                            : "text-gray-500"
+                                    }`}
+                                >
+                                    <IoMoon />
+                                </span>
+                            </div>
+                        </label>
                     </div>
                     <div className="flex items-center p-3">
                         <div className="w-6 h-6 mr-3 inline-flex">
