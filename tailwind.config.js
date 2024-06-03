@@ -7,21 +7,15 @@ export default {
     theme: {
         extend: {
             backgroundColor: {
-                primary: "#f8f9fa",
-                primary_dark: "#111827",
+                primary: "#f6f9fe",
                 secondary: "#ffffff",
-                secondary_dark: "#132337",
-                accent: "#eff6ff",
-                accent_dark: "#1C2E45",
+                accent: "#0f917c",
+                hover: "#85c5bb",
             },
             colors: {
-                primary: "#92afd3",
-                secondary: "#3b82f6",
-                icons: "#39475a",
-                border_light: "#e2e8f0",
-                border_dark: "#1c2e45",
-                blue: "#3b82f6",
-                blue_accent: "#2563eb",
+                primary: "#090909",
+                secondary: "#ffffff",
+                accent: "#0f917c",
             },
             transitionProperty: {
                 position: "right, left, top, bottom, margin, padding",

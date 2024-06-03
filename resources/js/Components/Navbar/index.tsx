@@ -1,7 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Logo from "../../../images/logo.png";
 import Avatar from "../../../images/avatar.png";
 import { GoChevronDown } from "react-icons/go";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 type Props = {
     className: string;
@@ -9,6 +10,22 @@ type Props = {
     icon: ReactNode;
 };
 const Navbar = ({ className, onClick, icon }: Props) => {
+    const [dark, setDark] = useState(() => {
+        const savedMode = localStorage.getItem("darkMode");
+        return savedMode
+            ? savedMode === "true"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    });
+
+    useEffect(() => {
+        document.body.classList.toggle("dark", dark);
+        localStorage.setItem("darkMode", dark.toString());
+    }, [dark]);
+
+    const darkModeHandler = () => {
+        setDark(!dark);
+    };
+
     return (
         <nav
             className={`${className} top-0 fixed h-14 z-30 w-screen inset-x-0 transition-position`}
@@ -28,6 +45,15 @@ const Navbar = ({ className, onClick, icon }: Props) => {
                     </div>
                 </div>
                 <div className="h-14 flex items-center cursor-pointer flex-none">
+                    <div className="flex items-center p-3">
+                        <button
+                            className="bg-yellow-100 dark:bg-slate-900"
+                            onClick={() => darkModeHandler()}
+                        >
+                            {dark && <IoSunny />}
+                            {!dark && <IoMoon />}
+                        </button>
+                    </div>
                     <div className="flex items-center p-3">
                         <div className="w-6 h-6 mr-3 inline-flex">
                             <img src={Avatar} alt="" />

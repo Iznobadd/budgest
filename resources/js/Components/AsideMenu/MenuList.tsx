@@ -1,27 +1,33 @@
 import { MenuAsideItem } from "@/interfaces";
-import { Bs0Circle } from "react-icons/bs";
-import { RiComputerLine } from "react-icons/ri";
-import { GrTransaction } from "react-icons/gr";
-import { BiCoinStack } from "react-icons/bi";
+import {
+    LuGoal,
+    LuTrendingUp,
+    LuLayers,
+    LuArrowLeftRight,
+    LuHome,
+} from "react-icons/lu";
 const menuList: MenuAsideItem[] = [
     {
-        icon: <RiComputerLine />,
+        icon: <LuHome />,
         label: "Dashboard",
-        menu: [
-            {
-                label: "Charts",
-                href: "/charts",
-            },
-        ],
     },
     {
-        icon: <GrTransaction />,
+        icon: <LuLayers />,
+        label: "Accounts",
+    },
+    {
+        icon: <LuArrowLeftRight />,
         label: "Transactions",
     },
     {
         href: "#",
-        icon: <BiCoinStack />,
-        label: "Budget",
+        icon: <LuGoal />,
+        label: "Goals",
+    },
+    {
+        href: "#",
+        icon: <LuTrendingUp />,
+        label: "Investments",
     },
 ];
 

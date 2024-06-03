@@ -7,7 +7,7 @@ export default function Dashboard() {
     const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false);
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden bg-primary">
             <div
                 className={`pt-14 min-h-screen w-screen lg:w-auto transition-position bg-gray-50 ${
                     isAsideMobileExpanded ? "ml-60" : "lg:ml-60"

@@ -14,7 +14,7 @@ export default function AsideMenu({ isAsideMobileExpanded = false }: Props) {
                 isAsideMobileExpanded ? "left-0" : "-left-60 lg:left-0"
             }`}
         >
-            <div className="flex-1 flex flex-col overflow-hidden bg-slate-300 lg:rounded-xl">
+            <div className="flex-1 flex flex-col overflow-hidden bg-accent lg:rounded-xl text-secondary">
                 {/* LOGO */}
                 <div className="flex h-14 items-center justify-center">
                     <img src={Logo} alt="" className="h-10" />

@@ -34,7 +34,7 @@ const Item = ({ item, isDropdownList = false }: Props) => {
         </>
     );
     return (
-        <li>
+        <li className="hover:bg-hover transition-colors">
             {item.href && (
                 <Link
                     href={item.href}
