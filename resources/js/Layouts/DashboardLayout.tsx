@@ -31,7 +31,9 @@ export default function Dashboard({ children }: DashboardProps) {
                     }
                 />
                 <AsideMenu isAsideMobileExpanded={isAsideMobileExpanded} />
-                <div className="p-6 lg:mx-auto xl:max-w-6xl">{children}</div>
+                <section className="p-6 lg:mx-auto xl:max-w-6xl">
+                    {children}
+                </section>
             </div>
         </div>
     );

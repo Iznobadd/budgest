@@ -9,6 +9,17 @@ use Inertia\Inertia;
 class TransactionController extends Controller
 {
     public function addTransaction() {
-        return Inertia::render("Dashboard/AddTransactions");
+        $categories = \Auth::user()->categories->all();
+        $options = [];
+        foreach($categories as $category) {
+            $options[] = [
+                "label" => $category->category_name,
+                "value" => $category->id
+            ];
+        }
+
+        return Inertia::render("Dashboard/AddTransactions", [
+            "options" => $options
+        ]);
     }
 }

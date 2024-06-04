@@ -17,3 +17,8 @@ export interface User {
         avatar_url: string | null;
     };
 }
+
+export interface Option {
+    label: string;
+    value: string;
+}

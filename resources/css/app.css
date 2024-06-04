@@ -11,8 +11,9 @@ body {
 
 @layer base {
     body {
-        @apply text-gray-500 dark:text-slate-400;
+        @apply text-black/90 dark:text-white/90;
     }
+    h1,
     h2 {
         @apply text-2xl text-black/90 dark:text-white/90;
     }
