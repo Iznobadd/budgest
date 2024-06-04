@@ -13,7 +13,6 @@ type Props = {
 };
 const Navbar = ({ className, onClick, icon }: Props) => {
     const auth = usePage().props.auth as User;
-    console.log(auth.user);
 
     const [dark, setDark] = useState(() => {
         const savedMode = localStorage.getItem("darkMode");

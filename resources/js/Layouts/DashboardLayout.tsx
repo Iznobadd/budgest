@@ -1,9 +1,13 @@
 import AsideMenu from "@/Components/AsideMenu";
 import Navbar from "@/Components/Navbar";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RiMenuFold3Line, RiMenuUnfold3Line } from "react-icons/ri";
 
-export default function Dashboard() {
+interface DashboardProps {
+    children?: React.ReactNode;
+}
+
+export default function Dashboard({ children }: DashboardProps) {
     const [isAsideMobileExpanded, setIsAsideMobileExpanded] = useState(false);
 
     return (
@@ -27,15 +31,7 @@ export default function Dashboard() {
                     }
                 />
                 <AsideMenu isAsideMobileExpanded={isAsideMobileExpanded} />
-                <div className="p-6 lg:mx-auto xl:max-w-6xl">
-                    <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Minima provident eius, est esse, eligendi
-                        praesentium animi at ea labore, quis molestias ipsam.
-                        Dignissimos, numquam alias adipisci explicabo ipsum
-                        facilis qui.
-                    </p>
-                </div>
+                <div className="p-6 lg:mx-auto xl:max-w-6xl">{children}</div>
             </div>
         </div>
     );
