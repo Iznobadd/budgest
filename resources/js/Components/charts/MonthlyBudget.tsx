@@ -28,9 +28,11 @@ const MonthlyBudget = () => {
                 <span className="inline-flex items-center justify-center w-6 h-6 mr-2">
                     <MdPieChart className="w-6 h-6 text-black/90 dark:text-white/90" />
                 </span>
-                <h2 className="text-2xl">Monthly Budget overview</h2>
+                <h2 className="text-2xl">Categories budget</h2>
             </div>
-            <Pie data={data} />
+            <div className="bg-white dark:bg-slate-900/70 rounded-2xl p-6">
+                <Pie data={data} />
+            </div>
         </div>
     );
 };
