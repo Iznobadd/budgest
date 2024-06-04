@@ -3,6 +3,8 @@ import Logo from "../../../images/logo.png";
 import Avatar from "../../../images/avatar.png";
 import { GoChevronDown } from "react-icons/go";
 import { IoMoon, IoSunny } from "react-icons/io5";
+import { usePage } from "@inertiajs/react";
+import { User } from "@/interfaces";
 
 type Props = {
     className: string;
@@ -10,6 +12,9 @@ type Props = {
     icon: ReactNode;
 };
 const Navbar = ({ className, onClick, icon }: Props) => {
+    const auth = usePage().props.auth as User;
+    console.log(auth.user);
+
     const [dark, setDark] = useState(() => {
         const savedMode = localStorage.getItem("darkMode");
         return savedMode
@@ -77,9 +82,22 @@ const Navbar = ({ className, onClick, icon }: Props) => {
                     </div>
                     <div className="flex items-center p-3">
                         <div className="w-6 h-6 mr-3 inline-flex">
-                            <img src={Avatar} alt="" />
+                            {auth.user.avatar_url && (
+                                <img
+                                    src={auth.user.avatar_url}
+                                    alt=""
+                                    className=" rounded-xl"
+                                />
+                            )}
+                            {!auth.user.avatar_url && (
+                                <img
+                                    src={Avatar}
+                                    alt=""
+                                    className=" rounded-xl"
+                                />
+                            )}
                         </div>
-                        <span className="px-2">John Doe</span>
+                        <span className="px-2">{auth.user.name}</span>
                         <span className="inline-flex justify-center items-center w-6 h-6">
                             <GoChevronDown />
                         </span>

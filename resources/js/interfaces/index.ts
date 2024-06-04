@@ -8,3 +8,12 @@ export type MenuAsideItem = {
     target?: string;
     menu?: MenuAsideItem[];
 };
+
+export interface User {
+    user: {
+        id: string;
+        email: string;
+        name: string;
+        avatar_url: string | null;
+    };
+}
