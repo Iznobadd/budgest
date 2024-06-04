@@ -10,6 +10,7 @@ const menuList: MenuAsideItem[] = [
     {
         icon: <LuHome />,
         label: "Dashboard",
+        href: "/dashboard",
     },
     {
         icon: <LuLayers />,
@@ -18,6 +19,7 @@ const menuList: MenuAsideItem[] = [
     {
         icon: <LuArrowLeftRight />,
         label: "Transactions",
+        href: "/dashboard/transactions/add",
     },
     {
         href: "#",

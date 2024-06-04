@@ -1,5 +1,11 @@
 import { usePage } from "@inertiajs/react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import {
+    Chart as ChartJS,
+    ArcElement,
+    Tooltip,
+    Legend,
+    plugins,
+} from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { MdPieChart } from "react-icons/md";
 
@@ -22,6 +28,18 @@ const MonthlyBudget = () => {
             },
         ],
     };
+
+    const options = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function (tooltipItem: any) {
+                        return `${tooltipItem.raw}€`;
+                    },
+                },
+            },
+        },
+    };
     return (
         <div>
             <div className="flex items-center justify-start mb-6">
@@ -31,7 +49,7 @@ const MonthlyBudget = () => {
                 <h2 className="text-2xl">Categories budget</h2>
             </div>
             <div className="bg-white dark:bg-slate-900/70 rounded-2xl p-6">
-                <Pie data={data} />
+                <Pie data={data} options={options} />
             </div>
         </div>
     );

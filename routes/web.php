@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\BudgetController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\OverviewController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\Dashboard\OverviewController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+
 Route::middleware('guest')->group(function() {
 
 
@@ -37,8 +38,13 @@ Route::get('auth/create-budget', [BudgetController::class, 'createForm'])->middl
 Route::post('auth/create-budget', [BudgetController::class, 'create'])->middleware('auth');
 
 Route::middleware(['auth', 'check.budget'])->group(function() {
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/', [OverviewController::class, 'home'])->name('dashboard.overview');
+    Route::prefix('dashboard')->name("dashboard.")->group(function () {
+        Route::get('/', [HomeController::class, 'overview'])->name('overview');
+
+        Route::prefix('transactions')->name('transactions.')->group(function () {
+            Route::get('/add', [TransactionController::class, 'addTransaction'])->name('add');
+        });
+
     });
 });
 

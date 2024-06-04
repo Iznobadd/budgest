@@ -22,18 +22,21 @@ export default function Overview() {
                         bg="bg-emerald-500"
                         label="Add new transaction"
                         icon={<FaMoneyCheckDollar className="w-6 h-6" />}
+                        href="/dashboard/transactions/add"
                     />
                     <Shortcuts
                         color="text-blue-500"
                         bg="bg-blue-500"
                         label="Add new category"
                         icon={<MdCategory className="w-6 h-6" />}
+                        href="/dashboard/transactions/add"
                     />
                     <Shortcuts
                         color="text-yellow-500"
                         bg="bg-yellow-500"
                         label="Add new account"
                         icon={<LuLayers className="w-6 h-6" />}
+                        href="/dashboard/transactions/add"
                     />
                 </div>
             </div>

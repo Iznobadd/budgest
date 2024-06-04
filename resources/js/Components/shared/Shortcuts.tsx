@@ -1,3 +1,4 @@
+import { Link } from "@inertiajs/react";
 import { ReactNode } from "react";
 
 type ShortcutsProps = {
@@ -5,9 +6,10 @@ type ShortcutsProps = {
     bg: string;
     label: string;
     icon: ReactNode;
+    href: string;
 };
 
-const Shortcuts = ({ color, label, icon, bg }: ShortcutsProps) => {
+const Shortcuts = ({ color, label, icon, bg, href }: ShortcutsProps) => {
     return (
         <div className="bg-white dark:bg-slate-900/70 rounded-2xl flex-col flex mb-6">
             <div className="flex-1 p-6">
@@ -19,11 +21,12 @@ const Shortcuts = ({ color, label, icon, bg }: ShortcutsProps) => {
                             {icon}
                         </span>
                     </div>
-                    <div
+                    <Link
+                        href={href}
                         className={`inline-flex items-center capitalize leading-none text-md rounded-full py-2 px-3 ${bg} text-white`}
                     >
                         <span>{label}</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

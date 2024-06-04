@@ -7,7 +7,7 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function overview() {
 
         // CATEGORY TRANSACTIONS
         $transactionsData = $this->categoryTransactions()[0];
