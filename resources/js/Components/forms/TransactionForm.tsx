@@ -1,61 +1,28 @@
 import { Option } from "@/interfaces";
-import Dropdown from "../shared/Dropdown";
-import Input from "../shared/Input";
-import Textarea from "../shared/Textarea";
-import DatePicker from "../shared/DatePicker";
-import Button from "../shared/Button";
-import { ChangeEvent, FormEvent, useState } from "react";
-import { router } from "@inertiajs/react";
-import { DateValueType } from "react-tailwindcss-datepicker";
+import { Dropdown, Input, Textarea, Button, DatePicker } from "../shared";
+import { FormEvent } from "react";
+import { useForm } from "@inertiajs/react";
 
 interface TransactionFormProps {
     options: Option[];
 }
 
-interface FormValues {
-    amount: number | null;
-    category: string;
-    date: DateValueType;
-    description: string;
-}
-
 const TransactionForm = ({ options }: TransactionFormProps) => {
-    const [values, setValues] = useState<FormValues>({
-        amount: null,
+    const { data, setData, post, processing, errors } = useForm({
+        amount: "",
         category: "",
         date: {
             startDate: new Date(),
             endDate: new Date(),
         },
-        description: "s",
+        description: "",
     });
-
-    const handleChange = (
-        e: ChangeEvent<
-            HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-        >
-    ) => {
-        setValues((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    };
-
-    const handleDateChange = (date: DateValueType) => {
-        setValues((prev) => ({ ...prev, date }));
-    };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData();
-        Object.entries(values).forEach(([key, value]) => {
-            if (key === "date" && value.startDate) {
-                formData.append(key, value.startDate);
-            } else {
-                formData.append(key, value);
-            }
-        });
-        for (let pair of formData.entries()) {
-            console.log(`${pair[0]}: ${pair[1]}`);
-        }
-        router.post("/test", formData);
+        console.log(data);
+
+        post("/dashboard/transactions/add");
     };
 
     return (
@@ -63,37 +30,65 @@ const TransactionForm = ({ options }: TransactionFormProps) => {
             <div className="flex-1 p-6">
                 <form action="" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <Input
-                            type="number"
-                            placeholder="Amount"
-                            id="amount"
-                            value={values.amount ?? ""}
-                            onChange={handleChange}
-                        />
+                        <div>
+                            <Input
+                                type="number"
+                                placeholder="Amount"
+                                id="amount"
+                                value={data.amount}
+                                onChange={(e) =>
+                                    setData("amount", e.target.value)
+                                }
+                                className={
+                                    errors.amount && "border-red-500 border-2"
+                                }
+                            />
+                        </div>
                         <DatePicker
-                            value={values.date}
-                            onChange={handleDateChange}
+                            value={data.date}
+                            onChange={(dateValue) => {
+                                const safeDateValue = {
+                                    startDate: dateValue?.startDate
+                                        ? new Date(dateValue.startDate)
+                                        : new Date(), // ensure it's a Date object
+                                    endDate: dateValue?.endDate
+                                        ? new Date(dateValue.endDate)
+                                        : new Date(), // ensure it's a Date object
+                                };
+                                setData("date", safeDateValue);
+                            }}
+                            className={errors.date && "border-red-500 border-2"}
                         />
                         <Dropdown
                             options={options}
                             name="category"
                             id="category"
-                            value={values.category}
-                            onChange={handleChange}
+                            value={data.category}
+                            onChange={(e) =>
+                                setData("category", e.target.value)
+                            }
+                            className={
+                                errors.category && "border-red-500 border-2"
+                            }
                         />
                     </div>
 
                     <div className="mb-6">
                         <Textarea
-                            value={values.description}
+                            value={data.description}
                             id="description"
                             placeholder="Enter a description for your transaction"
-                            onChange={handleChange}
+                            onChange={(e) =>
+                                setData("description", e.target.value)
+                            }
+                            className={
+                                errors.description && "border-red-500 border-2"
+                            }
                         />
                     </div>
 
                     <div>
-                        <Button label="Submit" />
+                        <Button label="Submit" disabled={processing} />
                     </div>
                 </form>
             </div>

@@ -43,6 +43,7 @@ Route::middleware(['auth', 'check.budget'])->group(function() {
 
         Route::prefix('transactions')->name('transactions.')->group(function () {
             Route::get('/add', [TransactionController::class, 'addTransaction'])->name('add');
+            Route::post('/add', [TransactionController::class,'storeTransaction']);
         });
 
     });

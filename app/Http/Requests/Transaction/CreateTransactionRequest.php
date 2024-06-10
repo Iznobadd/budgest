@@ -22,6 +22,8 @@ class CreateTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'amount' => 'required|numeric|min:0',
+            'category_id' => 'required|numeric|min:0'
         ];
     }
 }

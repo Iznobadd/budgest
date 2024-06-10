@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Transaction\CreateTransactionRequest;
-use Illuminate\Http\Request;
+use App\Models\Transaction;
 use Inertia\Inertia;
 
 class TransactionController extends Controller
@@ -21,5 +21,10 @@ class TransactionController extends Controller
         return Inertia::render("Dashboard/AddTransactions", [
             "options" => $options
         ]);
+    }
+
+    public function storeTransaction(CreateTransactionRequest $request) {
+        $transaction = Transaction::create($request->validated());
+        return to_route('dashboard.overview');
     }
 }
