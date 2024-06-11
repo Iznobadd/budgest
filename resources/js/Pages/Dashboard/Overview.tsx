@@ -8,8 +8,7 @@ import { MdOutlineShowChart } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 
 export default function Overview() {
-    const { flash }: any = usePage().props;
-    console.log(usePage().props);
+    console.log(usePage().url);
 
     return (
         <Dashboard>
@@ -18,9 +17,7 @@ export default function Overview() {
                     <span className="inline-flex items-center justify-center w-6 h-6 mr-2">
                         <MdOutlineShowChart className="w-6 h-6 text-black/90 dark:text-white/90" />
                     </span>
-                    <h2 className="text-3xl">
-                        Overview {flash.message && <div>{flash.message}</div>}
-                    </h2>
+                    <h2 className="text-3xl">Overview</h2>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                     <Shortcuts

@@ -1,5 +1,5 @@
 import { MenuAsideItem } from "@/interfaces";
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import { GoDash, GoPlus } from "react-icons/go";
 import MenuList from "./List";
@@ -11,18 +11,23 @@ type Props = {
 
 const Item = ({ item, isDropdownList = false }: Props) => {
     const [isDropdownActive, setIsDropdownActive] = useState(false);
-
+    const { url } = usePage();
+    const isActive = item.href === url;
     const asideInnerContent = (
         <>
             {item.icon && (
-                <span className="inline-flex justify-center items-center w-16 h-6 flex-none">
+                <span
+                    className={`inline-flex justify-center items-center w-16 h-6 flex-none ${
+                        isActive ? "font-bold text-white" : ""
+                    }`}
+                >
                     {item.icon}
                 </span>
             )}
             <span
                 className={`grow text-ellipsis line-clamp-1 ${
                     item.menu ? "" : "pr-12"
-                }`}
+                } ${isActive ? "font-bold text-white" : ""}`}
             >
                 {item.label}
             </span>
@@ -40,7 +45,7 @@ const Item = ({ item, isDropdownList = false }: Props) => {
                     href={item.href}
                     className={`flex cursor-pointer py-3 ${
                         isDropdownList ? "px-6 text-sm" : ""
-                    }`}
+                    } `}
                 >
                     {asideInnerContent}
                 </Link>
