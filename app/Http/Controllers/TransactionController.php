@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Transaction\CreateTransactionRequest;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class TransactionController extends Controller
@@ -24,7 +25,11 @@ class TransactionController extends Controller
     }
 
     public function storeTransaction(CreateTransactionRequest $request) {
-        $transaction = Transaction::create($request->validated());
-        return to_route('dashboard.overview');
+        $validatedData = $request->validated();
+        $validatedData['user_id'] = \Auth::user()->id;
+
+        Transaction::create($validatedData);
+
+        return to_route('dashboard.overview')->with('success', 'The transaction has been added successfully');
     }
 }

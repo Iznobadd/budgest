@@ -1,13 +1,6 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ComponentProps } from "react";
 
-type InputProps = {
-    type: string;
-    placeholder: string;
-    id: string;
-    value: string | number;
-    className?: string;
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-};
+interface InputProps2 extends ComponentProps<"input"> {}
 
 const Input = ({
     type,
@@ -16,7 +9,7 @@ const Input = ({
     value,
     className,
     onChange,
-}: InputProps) => {
+}: InputProps2) => {
     return (
         <input
             type={type}

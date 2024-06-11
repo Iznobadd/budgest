@@ -3,7 +3,7 @@ export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.tsx",
-        "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+        "./node_modules/tailwind-datepicker-react/dist/**/*.js",
     ],
     darkMode: "class",
     theme: {

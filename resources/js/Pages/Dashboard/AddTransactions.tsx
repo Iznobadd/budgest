@@ -1,6 +1,7 @@
 import TransactionForm from "@/Components/forms/TransactionForm";
 import Dashboard from "@/Layouts/DashboardLayout";
 import { Option } from "@/interfaces";
+import { usePage } from "@inertiajs/react";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 
 type AddTransactionProps = {
@@ -8,6 +9,7 @@ type AddTransactionProps = {
 };
 
 const AddTransactions = (props: AddTransactionProps) => {
+    console.log(usePage().props);
     return (
         <Dashboard>
             <section className="mb-6 flex items-center justify-start">

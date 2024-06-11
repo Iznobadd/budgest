@@ -10,19 +10,16 @@ interface TransactionFormProps {
 const TransactionForm = ({ options }: TransactionFormProps) => {
     const { data, setData, post, processing, errors } = useForm({
         amount: "",
-        category: "",
-        date: {
-            startDate: new Date(),
-            endDate: new Date(),
-        },
+        category_id: "",
+        transaction_date: new Date(),
         description: "",
     });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(data);
 
-        post("/dashboard/transactions/add");
+        console.log(data);
+        post("add");
     };
 
     return (
@@ -45,30 +42,28 @@ const TransactionForm = ({ options }: TransactionFormProps) => {
                             />
                         </div>
                         <DatePicker
-                            value={data.date}
-                            onChange={(dateValue) => {
-                                const safeDateValue = {
-                                    startDate: dateValue?.startDate
-                                        ? new Date(dateValue.startDate)
-                                        : new Date(), // ensure it's a Date object
-                                    endDate: dateValue?.endDate
-                                        ? new Date(dateValue.endDate)
-                                        : new Date(), // ensure it's a Date object
-                                };
-                                setData("date", safeDateValue);
-                            }}
-                            className={errors.date && "border-red-500 border-2"}
+                            value={data.transaction_date}
+                            onChange={(newDate) =>
+                                setData("transaction_date", newDate)
+                            }
+                            className={
+                                errors.transaction_date &&
+                                "border-red-500 border-2"
+                            }
                         />
+                        {errors.transaction_date && (
+                            <div>{errors.transaction_date}</div>
+                        )}
                         <Dropdown
                             options={options}
                             name="category"
                             id="category"
-                            value={data.category}
+                            value={data.category_id}
                             onChange={(e) =>
-                                setData("category", e.target.value)
+                                setData("category_id", e.target.value)
                             }
                             className={
-                                errors.category && "border-red-500 border-2"
+                                errors.category_id && "border-red-500 border-2"
                             }
                         />
                     </div>

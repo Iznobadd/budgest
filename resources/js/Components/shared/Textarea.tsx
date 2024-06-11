@@ -1,12 +1,14 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ComponentProps } from "react";
 
-type TextareaProps = {
-    id: string;
-    value: string;
-    placeholder: string;
-    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-    className?: string;
-};
+// type TextareaProps = {
+//     id: string;
+//     value: string;
+//     placeholder: string;
+//     onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+//     className?: string;
+// };
+
+interface TextareaProps extends ComponentProps<"textarea"> {}
 
 const Textarea = ({
     id,
