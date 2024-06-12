@@ -17,48 +17,26 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $user_id
- * @property string $budget_name
- * @property string $total_amount
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|Budget newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Budget newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Budget query()
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereBudgetName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereTotalAmount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Budget whereUserId($value)
- */
-	class Budget extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * 
- *
- * @property int $id
- * @property int $user_id
- * @property string $category_name
- * @property string $budget_limit
+ * @property string $name
+ * @property string|null $account_type
+ * @property string $balance
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
  * @property-read int|null $transactions_count
  * @property-read \App\Models\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Category query()
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereBudgetLimit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereCategoryName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Category whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Account newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Account query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereAccountType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereBalance($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Account whereUserId($value)
  */
-	class Category extends \Eloquent {}
+	class Account extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -67,17 +45,44 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $user_id
- * @property int $category_id
- * @property string $amount
- * @property string $transaction_date
- * @property string|null $description
+ * @property string $name
+ * @property string|null $limit
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Category $category
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
+ * @property-read int|null $transactions_count
  * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereLimit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BudgetCategory whereUserId($value)
+ */
+	class BudgetCategory extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $account_id
+ * @property int|null $category_id
+ * @property string $amount
+ * @property string|null $description
+ * @property string $transaction_date
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Account $account
+ * @property-read \App\Models\BudgetCategory|null $category
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAccountId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCategoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereCreatedAt($value)
@@ -85,7 +90,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereTransactionDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUserId($value)
  */
 	class Transaction extends \Eloquent {}
 }
@@ -104,12 +108,16 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $avatar_url
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Budget> $budgets
- * @property-read int|null $budgets_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Account> $accounts
+ * @property-read int|null $accounts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\BudgetCategory> $budgetCategories
+ * @property-read int|null $budget_categories_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Transaction> $transactions
+ * @property-read int|null $transactions_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
