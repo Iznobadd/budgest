@@ -48,18 +48,18 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function budgets(): HasMany
+    public function accounts()
     {
-        return $this->hasMany(Budget::class);
+        return $this->hasMany(Account::class);
     }
 
-    public function categories(): HasMany
+    public function budgetCategories()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(BudgetCategory::class);
     }
 
-    public function transactions(): HasMany
+    public function transactions()
     {
-        return $this->hasMany(Transaction::class);
+        return $this->hasManyThrough(Transaction::class, Account::class);
     }
 }

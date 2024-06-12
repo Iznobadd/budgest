@@ -37,7 +37,7 @@ Route::middleware('guest')->group(function() {
 Route::get('auth/create-budget', [BudgetController::class, 'createForm'])->middleware('auth')->name('auth.create_budget');
 Route::post('auth/create-budget', [BudgetController::class, 'create'])->middleware('auth');
 
-Route::middleware(['auth', 'check.budget'])->group(function() {
+Route::middleware(['auth'])->group(function() {
     Route::prefix('dashboard')->name("dashboard.")->group(function () {
         Route::get('/', [HomeController::class, 'overview'])->name('overview');
 

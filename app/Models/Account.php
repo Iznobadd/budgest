@@ -4,19 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-class Budget extends Model
+
+class Account extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'budget_name',
-        'total_amount'
+        'name',
+        'account_type',
+        'balance',
     ];
 
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
