@@ -39,7 +39,7 @@ export default function Overview() {
                         bg="bg-yellow-500"
                         label="Add new account"
                         icon={<LuLayers className="w-6 h-6" />}
-                        href="/dashboard/transactions/add"
+                        href="/dashboard/accounts/add"
                     />
                 </div>
             </div>

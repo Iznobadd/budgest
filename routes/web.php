@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\CredentialController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Dashboard\BudgetController;
@@ -44,6 +45,11 @@ Route::middleware(['auth'])->group(function() {
         Route::prefix('transactions')->name('transactions.')->group(function () {
             Route::get('/add', [TransactionController::class, 'addTransaction'])->name('add');
             Route::post('/add', [TransactionController::class,'storeTransaction'])->name('store');
+        });
+
+        Route::prefix('accounts')->name('accounts.')->group(function () {
+            Route::get('/add', [AccountController::class, 'addAccount'])->name('add');
+            Route::post('/add', [AccountController::class,'storeAccount'])->name('store');
         });
 
     });

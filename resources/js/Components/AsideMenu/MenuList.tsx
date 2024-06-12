@@ -15,6 +15,7 @@ const menuList: MenuAsideItem[] = [
     {
         icon: <LuLayers />,
         label: "Accounts",
+        href: "/dashboard/accounts/add",
     },
     {
         icon: <LuArrowLeftRight />,
