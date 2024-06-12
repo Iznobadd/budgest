@@ -21,7 +21,7 @@ class HomeController extends Controller
 
     private function categoryTransactions(): array
     {
-        $categories = \Auth::user()->categories()->get();
+        $categories = \Auth::user()->budgetCategories()->get();
         $transactionSums = [];
 
         foreach ($categories as $category) {
@@ -30,7 +30,7 @@ class HomeController extends Controller
             $transactionSums[] = $transactionSum;
         }
 
-        $categoryNames = $categories->pluck('category_name')->toArray();
+        $categoryNames = $categories->pluck('name')->toArray();
 
         return [
             $transactionSums,

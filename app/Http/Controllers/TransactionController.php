@@ -10,11 +10,11 @@ use Inertia\Inertia;
 class TransactionController extends Controller
 {
     public function addTransaction() {
-        $categories = \Auth::user()->categories->all();
+        $categories = \Auth::user()->budgetCategories()->get();
         $options = [];
         foreach($categories as $category) {
             $options[] = [
-                "label" => $category->category_name,
+                "label" => $category->name,
                 "value" => $category->id
             ];
         }
