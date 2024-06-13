@@ -1,15 +1,12 @@
 import MonthlyBudget from "@/Components/charts/MonthlyBudget";
 import Shortcuts from "@/Components/shared/Shortcuts";
 import Dashboard from "@/Layouts/DashboardLayout";
-import { usePage } from "@inertiajs/react";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { LuLayers } from "react-icons/lu";
 import { MdOutlineShowChart } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 
 export default function Overview() {
-    console.log(usePage().url);
-
     return (
         <Dashboard>
             <div>
@@ -32,7 +29,7 @@ export default function Overview() {
                         bg="bg-blue-500"
                         label="Add new category"
                         icon={<MdCategory className="w-6 h-6" />}
-                        href="/dashboard/transactions/add"
+                        href="/dashboard/categories/add"
                     />
                     <Shortcuts
                         color="text-yellow-500"
