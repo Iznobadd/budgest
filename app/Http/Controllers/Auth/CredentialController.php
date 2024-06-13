@@ -10,15 +10,19 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
 
 class CredentialController extends Controller
 {
-    public function registerForm(): View {
-        return view('auth.register');
+    public function registerForm() {
+        return Inertia::render('Auth/Register');
     }
 
-    public function loginForm(): View {
-        return view('auth.login');
+    public function loginForm() {
+        return Inertia::render('Auth/Login', [
+            'googleAuthUrl' => route('googleAuth'),
+            'registerUrl' => route('register')
+        ]);
     }
 
     public function register(RegisterRequest $request): RedirectResponse
@@ -43,6 +47,6 @@ class CredentialController extends Controller
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.'
-        ]);
+        ])->onlyInput('email');
     }
 }
