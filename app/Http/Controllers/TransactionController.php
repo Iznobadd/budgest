@@ -11,16 +11,26 @@ class TransactionController extends Controller
 {
     public function addTransaction() {
         $categories = \Auth::user()->budgetCategories()->get();
-        $options = [];
+        $categoriesOptions = [];
         foreach($categories as $category) {
-            $options[] = [
+            $categoriesOptions[] = [
                 "label" => $category->name,
                 "value" => $category->id
             ];
         }
 
+        $accounts = \Auth::user()->accounts()->get();
+        $accountsOptions = [];
+        foreach($accounts as $account) {
+            $accountsOptions[] = [
+                "label" => $account->name,
+                "value" => $account->id
+            ];
+        }
+
         return Inertia::render("Dashboard/AddTransactions", [
-            "options" => $options
+            "categoriesOptions" => $categoriesOptions,
+            "accountsOptions" => $accountsOptions
         ]);
     }
 

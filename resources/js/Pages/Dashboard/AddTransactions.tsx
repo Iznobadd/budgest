@@ -4,7 +4,8 @@ import { Option } from "@/interfaces";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 
 type AddTransactionProps = {
-    options: Option[];
+    categoriesOptions: Option[];
+    accountsOptions: Option[];
 };
 
 const AddTransactions = (props: AddTransactionProps) => {
@@ -16,7 +17,10 @@ const AddTransactions = (props: AddTransactionProps) => {
                 </span>
                 <h1 className="leading-tight text-3xl">Add new transaction</h1>
             </section>
-            <TransactionForm options={props.options} />
+            <TransactionForm
+                categoriesOptions={props.categoriesOptions}
+                accountsOptions={props.accountsOptions}
+            />
         </Dashboard>
     );
 };

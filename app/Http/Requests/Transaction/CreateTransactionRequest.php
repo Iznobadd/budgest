@@ -24,6 +24,7 @@ class CreateTransactionRequest extends FormRequest
         return [
             'amount' => ['required', 'min:0'],
             'category_id' => ['required'],
+            'account_id' => ['required'],
             'transaction_date' => ['required', 'date'],
             'description' => []
         ];

@@ -4,13 +4,18 @@ import { FormEvent } from "react";
 import { useForm } from "@inertiajs/react";
 
 interface TransactionFormProps {
-    options: Option[];
+    categoriesOptions: Option[];
+    accountsOptions: Option[];
 }
 
-const TransactionForm = ({ options }: TransactionFormProps) => {
+const TransactionForm = ({
+    categoriesOptions,
+    accountsOptions,
+}: TransactionFormProps) => {
     const { data, setData, post, processing, errors } = useForm({
         amount: "",
         category_id: "",
+        account_id: "",
         transaction_date: new Date(),
         description: "",
     });
@@ -55,7 +60,7 @@ const TransactionForm = ({ options }: TransactionFormProps) => {
                             <div>{errors.transaction_date}</div>
                         )}
                         <Dropdown
-                            options={options}
+                            options={categoriesOptions}
                             name="category"
                             id="category"
                             value={data.category_id}
@@ -64,6 +69,18 @@ const TransactionForm = ({ options }: TransactionFormProps) => {
                             }
                             className={
                                 errors.category_id && "border-red-500 border-2"
+                            }
+                        />
+                        <Dropdown
+                            options={accountsOptions}
+                            name="account"
+                            id="account"
+                            value={data.account_id}
+                            onChange={(e) =>
+                                setData("account_id", e.target.value)
+                            }
+                            className={
+                                errors.account_id && "border-red-500 border-2"
                             }
                         />
                     </div>
