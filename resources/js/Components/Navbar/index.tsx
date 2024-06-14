@@ -32,7 +32,7 @@ const Navbar = ({ className, onClick, icon }: Props) => {
 
     return (
         <nav
-            className={`${className} top-0 fixed h-14 z-30 w-screen inset-x-0 transition-position text-black dark:text-white`}
+            className={`${className} top-0 fixed h-14 z-30 w-screen inset-x-0 transition-position text-black dark:text-white dark:bg-slate-800`}
         >
             <div className="flex items-stretch">
                 <div className="flex flex-1 items-stretch h-14">
@@ -43,9 +43,6 @@ const Navbar = ({ className, onClick, icon }: Props) => {
                         >
                             {icon}
                         </span>
-                    </div>
-                    <div className="items-center cursor-pointer flex py-2 px-3">
-                        <img src={Logo} alt="" className="h-8" />
                     </div>
                 </div>
                 <div className="h-14 flex items-center cursor-pointer flex-none">
