@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Transaction\CreateTransactionRequest;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -37,6 +38,7 @@ class TransactionController extends Controller
     public function storeTransaction(CreateTransactionRequest $request) {
         $validatedData = $request->validated();
         $validatedData['user_id'] = \Auth::user()->id;
+        $validatedData['transaction_date'] = Carbon::parse($validatedData['transaction_date'])->setTimezone(config('app.timezone'))->toDateString();
 
         Transaction::create($validatedData);
 
