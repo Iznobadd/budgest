@@ -6,6 +6,7 @@ import {
     LuArrowLeftRight,
     LuHome,
 } from "react-icons/lu";
+import { MdCategory } from "react-icons/md";
 const menuList: MenuAsideItem[] = [
     {
         icon: <LuHome />,
@@ -13,14 +14,19 @@ const menuList: MenuAsideItem[] = [
         href: "/dashboard",
     },
     {
-        icon: <LuLayers />,
-        label: "Accounts",
-        href: "/dashboard/accounts/add",
-    },
-    {
         icon: <LuArrowLeftRight />,
         label: "Transactions",
         href: "/dashboard/transactions/add",
+    },
+    {
+        icon: <MdCategory />,
+        label: "Categories",
+        href: "/dashboard/categories/add",
+    },
+    {
+        icon: <LuLayers />,
+        label: "Accounts",
+        href: "/dashboard/accounts/add",
     },
     {
         href: "#",
