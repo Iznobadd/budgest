@@ -16,7 +16,7 @@ const menuList: MenuAsideItem[] = [
     {
         icon: <LuArrowLeftRight />,
         label: "Transactions",
-        href: "/dashboard/transactions/add",
+        href: "/dashboard/transactions/",
     },
     {
         icon: <MdCategory />,

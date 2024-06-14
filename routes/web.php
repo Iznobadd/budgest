@@ -36,6 +36,8 @@ Route::middleware(['auth'])->group(function() {
         });
 
         Route::prefix('transactions')->name('transactions.')->group(function () {
+            Route::get('/', [TransactionController::class, 'list'])->name('list');
+
             Route::get('/add', [TransactionController::class, 'addTransaction'])->name('add');
             Route::post('/add', [TransactionController::class,'storeTransaction'])->name('store');
         });
