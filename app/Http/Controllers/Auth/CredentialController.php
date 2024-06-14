@@ -15,7 +15,10 @@ use Inertia\Inertia;
 class CredentialController extends Controller
 {
     public function registerForm() {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/Register', [
+            'googleAuthUrl' => route('googleAuth'),
+            'loginUrl' => route('login')
+        ]);
     }
 
     public function loginForm() {

@@ -9,7 +9,6 @@ const Login = () => {
     const { props } = usePage<{ googleAuthUrl: string; registerUrl: string }>();
     const { googleAuthUrl, registerUrl } = props;
     const { errors } = usePage().props;
-    console.log(registerUrl);
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
