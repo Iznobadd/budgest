@@ -10,6 +10,13 @@ use Inertia\Inertia;
 
 class TransactionController extends Controller
 {
+    public function list() {
+        $transactions = \Auth::user()->transactions()->with('account', 'category')->get();
+        return Inertia::render('Dashboard/Transaction/ListTransaction', [
+            'transactions' => $transactions
+        ]);
+    }
+
     public function addTransaction() {
         $categories = \Auth::user()->budgetCategories()->get();
         $categoriesOptions = [];

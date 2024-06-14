@@ -19,6 +19,69 @@ body {
     }
 }
 
+@layer utilities {
+    tr {
+        position: relative;
+        display: block;
+        max-width: 100%;
+        border-bottom-width: 4px;
+        border-color: rgb(243 244 246);
+    }
+    td {
+        display: flex;
+        justify-content: space-between;
+        border-bottom-width: 1px;
+        padding: 0.75rem 1rem;
+        text-align: right;
+        vertical-align: top;
+        border-color: rgb(243 244 246);
+    }
+    :is(.dark tr) {
+        border-color: rgb(30 41 59);
+    }
+    :is(.dark td) {
+        border-color: rgb(30 41 59);
+    }
+    td::before {
+        content: attr(data-label);
+        padding-right: 0.75rem;
+        text-align: left;
+        font-weight: 600;
+    }
+    @media (min-width: 1024px) {
+        tbody tr:nth-child(2n + 1) {
+            background-color: rgba(243, 244, 246, 0.5);
+        }
+        :is(.dark tbody tr:nth-child(2n + 1)) {
+            background-color: rgba(30, 41, 59, 0.5);
+        }
+        tr {
+            position: relative;
+            display: table-row;
+            max-width: 100%;
+            border-bottom-width: 0px;
+            border-color: rgb(243 244 246);
+        }
+        td {
+            display: table-cell;
+            border-bottom-width: 0;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: middle;
+        }
+        td::before {
+            content: none;
+        }
+        td:not(:first-child) {
+            border-width: 0 0 0 1px;
+            border-color: rgb(243 244 246);
+        }
+        :is(.dark td:not(:first-child)) {
+            border-color: rgb(51 65 85);
+        }
+    }
+}
+
 .transition-width {
     transition-property: width;
 }
