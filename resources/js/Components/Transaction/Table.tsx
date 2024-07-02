@@ -1,13 +1,8 @@
 import { Transaction } from "@/interfaces";
 import { BsEyeFill } from "react-icons/bs";
-import { FaEye, FaTrashAlt } from "react-icons/fa";
-import { TiEye, TiTrash } from "react-icons/ti";
+import { FaTrashAlt } from "react-icons/fa";
 
-interface TableProps {
-    transactions: Transaction[];
-}
-
-const Table = ({ transactions }: TableProps) => {
+const Table = ({ transactions }: any) => {
     return (
         <div className="bg-white flex  rounded-2xl flex-col dark:bg-slate-900/70 text-black dark:text-white ">
             <div className="flex-1">
@@ -22,7 +17,7 @@ const Table = ({ transactions }: TableProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {transactions.map(
+                        {transactions.data.map(
                             (transaction: Transaction, index: any) => (
                                 <tr key={index}>
                                     <td data-label="Account">

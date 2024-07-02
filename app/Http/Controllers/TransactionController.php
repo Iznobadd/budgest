@@ -11,7 +11,7 @@ use Inertia\Inertia;
 class TransactionController extends Controller
 {
     public function list() {
-        $transactions = \Auth::user()->transactions()->with('account', 'category')->get();
+        $transactions = \Auth::user()->transactions()->with('account', 'category')->paginate(5);
         return Inertia::render('Dashboard/Transaction/ListTransaction', [
             'transactions' => $transactions
         ]);
