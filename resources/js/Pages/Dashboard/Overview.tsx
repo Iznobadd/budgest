@@ -9,7 +9,12 @@ import { LuLayers } from "react-icons/lu";
 import { MdOutlineShowChart } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 
-export default function Overview({ recentTransactions }: any) {
+export default function Overview({
+    recentTransactions,
+    accountOptions,
+    transactionAccountOptions,
+    transactionCategoryOptions,
+}: any) {
     console.log(recentTransactions);
 
     return (
@@ -28,21 +33,24 @@ export default function Overview({ recentTransactions }: any) {
                         bg="bg-emerald-500"
                         label="Add new transaction"
                         icon={<FaMoneyCheckDollar className="w-6 h-6" />}
-                        href="/dashboard/transactions/add"
+                        formType="transaction"
+                        accountOptions={transactionAccountOptions}
+                        categoryOptions={transactionCategoryOptions}
                     />
                     <Shortcuts
                         color="text-blue-500"
                         bg="bg-blue-500"
                         label="Add new category"
                         icon={<MdCategory className="w-6 h-6" />}
-                        href="/dashboard/categories/add"
+                        formType="category"
                     />
                     <Shortcuts
                         color="text-yellow-500"
                         bg="bg-yellow-500"
                         label="Add new account"
                         icon={<LuLayers className="w-6 h-6" />}
-                        href="/dashboard/accounts/add"
+                        formType="account"
+                        accountOptions={accountOptions}
                     />
                 </div>
             </div>

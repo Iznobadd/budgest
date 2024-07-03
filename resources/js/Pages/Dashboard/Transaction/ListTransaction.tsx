@@ -1,10 +1,15 @@
 import Pagination from "@/Components/Pagination";
 import Table from "@/Components/Transaction/Table";
+import Shortcuts from "@/Components/shared/Shortcuts";
 import Dashboard from "@/Layouts/DashboardLayout";
 import { Head, Link, usePage } from "@inertiajs/react";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 
-const ListTransaction = ({ transactions }: any) => {
+const ListTransaction = ({
+    transactions,
+    categoriesOptions,
+    accountsOptions,
+}: any) => {
     console.log(transactions);
 
     return (
@@ -17,12 +22,15 @@ const ListTransaction = ({ transactions }: any) => {
                     </span>
                     <h1 className="leading-tight text-3xl">Transactions</h1>
                 </div>
-                <Link
-                    href="transactions/add"
-                    className="inline-flex justify-center md:justify-start w-full md:w-auto items-center capitalize leading-none text-md rounded-full py-4 px-3 text-white bg-emerald-500"
-                >
-                    <span>Add new transaction</span>
-                </Link>
+                <Shortcuts
+                    color="text-emerald-500"
+                    bg="bg-emerald-500"
+                    label="Add new transaction"
+                    icon={<FaMoneyCheckDollar className="w-6 h-6" />}
+                    formType="transaction"
+                    accountOptions={accountsOptions}
+                    categoryOptions={categoriesOptions}
+                />
             </section>
 
             <Table transactions={transactions} />

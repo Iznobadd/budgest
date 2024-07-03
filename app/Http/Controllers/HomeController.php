@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Enums\AccountType;
 
 class HomeController extends Controller
 {
     public function overview() {
+
+        // Options
+        $accountOptions = $this->accountOptions();
+        $transactionAccountOptions = $this->transactionAccountOptions();
+        $transactionCategoryOptions = $this->transactionCategoryOptions();
 
         // CATEGORY TRANSACTIONS
         $transactionsData = $this->categoryTransactions()[0];
@@ -18,7 +24,10 @@ class HomeController extends Controller
         return Inertia::render('Dashboard/Overview', [
             "monthlyTransactions" => $transactionsData,
             "categoriesTransactions" => $categoriesData,
-            "recentTransactions" => $recentTransactions
+            "recentTransactions" => $recentTransactions,
+            "accountOptions" => $accountOptions,
+            "transactionAccountOptions" => $transactionAccountOptions,
+            "transactionCategoryOptions" => $transactionCategoryOptions
         ]);
     }
 
@@ -41,9 +50,38 @@ class HomeController extends Controller
         ];
     }
 
-    private function recentTransactions() {
-        $recentTransactions = \Auth::user()->transactions()->with('account', 'category')->limit(5);
+    private function accountOptions() {
+        $options = [];
+        foreach(AccountType::cases() as $case) {
+            $options[] = [
+                'label' => ucfirst($case->name),
+                "value" => $case->value
+            ];
+        }
+        return $options;
+    }
 
+    private function transactionAccountOptions() {
+        $accounts = \Auth::user()->accounts()->get();
+        $accountsOptions = [];
+        foreach($accounts as $account) {
+            $accountsOptions[] = [
+                "label" => $account->name,
+                "value" => $account->id
+            ];
+        }
+        return $accountsOptions;
+    }
 
+    private function transactionCategoryOptions() {
+        $categories = \Auth::user()->budgetCategories()->get();
+        $categoriesOptions = [];
+        foreach($categories as $category) {
+            $categoriesOptions[] = [
+                "label" => $category->name,
+                "value" => $category->id
+            ];
+        }
+        return $categoriesOptions;
     }
 }
