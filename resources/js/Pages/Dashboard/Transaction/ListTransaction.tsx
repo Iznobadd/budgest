@@ -1,7 +1,7 @@
 import Pagination from "@/Components/Pagination";
 import Table from "@/Components/Transaction/Table";
 import Dashboard from "@/Layouts/DashboardLayout";
-import { Link, usePage } from "@inertiajs/react";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 
 const ListTransaction = ({ transactions }: any) => {
@@ -9,6 +9,7 @@ const ListTransaction = ({ transactions }: any) => {
 
     return (
         <Dashboard>
+            <Head title="Transactions list" />
             <section className="mb-6 flex items-center justify-between flex-wrap md:flex-nowrap">
                 <div className="flex items-center justify-center md:justify-start w-full md:w-auto mb-5 md:mb-0">
                     <span className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-white text-black dark:bg-slate-900/70 dark:text-white mr-3">

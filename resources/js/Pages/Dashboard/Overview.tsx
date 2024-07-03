@@ -3,6 +3,7 @@ import Table from "@/Components/Transaction/Table";
 import MonthlyBudget from "@/Components/charts/MonthlyBudget";
 import Shortcuts from "@/Components/shared/Shortcuts";
 import Dashboard from "@/Layouts/DashboardLayout";
+import { Head } from "@inertiajs/react";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { LuLayers } from "react-icons/lu";
 import { MdOutlineShowChart } from "react-icons/md";
@@ -13,6 +14,7 @@ export default function Overview({ recentTransactions }: any) {
 
     return (
         <Dashboard>
+            <Head title="Overview" />
             <div>
                 <div className="flex items-center justify-start mb-6">
                     <span className="inline-flex items-center justify-center w-6 h-6 mr-2">

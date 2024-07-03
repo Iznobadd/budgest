@@ -2,6 +2,7 @@ import AccountForm from "@/Components/forms/AccountForm";
 import Dashboard from "@/Layouts/DashboardLayout";
 import { LuLayers } from "react-icons/lu";
 import { Option } from "@/interfaces";
+import { Head } from "@inertiajs/react";
 
 type AddAccountProps = {
     options: Option[];
@@ -10,6 +11,7 @@ type AddAccountProps = {
 const AddAccount = (props: AddAccountProps) => {
     return (
         <Dashboard>
+            <Head title="Add new bank account" />
             <section className="mb-6 flex items-center justify-start">
                 <span className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-white text-black dark:bg-slate-900/70 dark:text-white mr-3">
                     <LuLayers className="w-6 h-6" />
