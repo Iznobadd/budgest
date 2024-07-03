@@ -1,3 +1,5 @@
+import Recent from "@/Components/Transaction/Recent";
+import Table from "@/Components/Transaction/Table";
 import MonthlyBudget from "@/Components/charts/MonthlyBudget";
 import Shortcuts from "@/Components/shared/Shortcuts";
 import Dashboard from "@/Layouts/DashboardLayout";
@@ -6,7 +8,9 @@ import { LuLayers } from "react-icons/lu";
 import { MdOutlineShowChart } from "react-icons/md";
 import { MdCategory } from "react-icons/md";
 
-export default function Overview() {
+export default function Overview({ recentTransactions }: any) {
+    console.log(recentTransactions);
+
     return (
         <Dashboard>
             <div>
@@ -42,7 +46,11 @@ export default function Overview() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <MonthlyBudget />
+                <div>
+                    <Recent transactions={recentTransactions} />
+                </div>
             </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6"></div>
         </Dashboard>
     );
 }

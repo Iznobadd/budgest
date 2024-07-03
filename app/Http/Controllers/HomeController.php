@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -13,9 +12,13 @@ class HomeController extends Controller
         $transactionsData = $this->categoryTransactions()[0];
         $categoriesData = $this->categoryTransactions()[1];
 
+        // RECENT TRANSACTIONS
+        $recentTransactions = \Auth::user()->transactions()->with('account', 'category')->limit(5)->get();
+
         return Inertia::render('Dashboard/Overview', [
             "monthlyTransactions" => $transactionsData,
-            "categoriesTransactions" => $categoriesData
+            "categoriesTransactions" => $categoriesData,
+            "recentTransactions" => $recentTransactions
         ]);
     }
 
@@ -36,5 +39,11 @@ class HomeController extends Controller
             $transactionSums,
             $categoryNames
         ];
+    }
+
+    private function recentTransactions() {
+        $recentTransactions = \Auth::user()->transactions()->with('account', 'category')->limit(5);
+
+
     }
 }
